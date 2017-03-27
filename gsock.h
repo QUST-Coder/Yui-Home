@@ -39,13 +39,8 @@ typedef int socklen_t;
 #include <unistd.h>
 #include <fcntl.h>
 #define closesocket close
-using BYTE = unsigned char;
-#endif
-
-#include <thread>
-#include <cstdio>
-#include <cstring>
-using namespace std;
+typedef unsigned char BYTE;
+#endif /// End of platform configure.
 
 #if defined(DEBUG) && !defined(dprintf)
 #define dprintf(format,args...) printf("Debug Output: ");printf(format,##args)

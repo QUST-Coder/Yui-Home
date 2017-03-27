@@ -1,5 +1,10 @@
 #include "gsock.h"
 
+#include <cstdio>
+#include <cstring>
+#include <exception>
+using namespace std;
+
 namespace _internal_on_start
 {
     class _init_winsock2_2_class
@@ -28,7 +33,7 @@ namespace _internal_on_start
             #endif
         }
     }_init_winsock2_2_obj;
-}
+}/// End of namespace _internal_on_start
 
 inline serversock::serversock()
 {
