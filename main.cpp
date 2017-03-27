@@ -1,0 +1,6 @@
+#include "gsock.h"
+
+int main()
+{
+    return 0;
+}

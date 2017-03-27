@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1490624324 source:d:\codeblocks_codes\yuihome\main.cpp
+	"gsock.h"
+
+1490625355 d:\codeblocks_codes\yuihome\gsock.h
+	<winsock2.h>
+	<arpa/inet.h>
+	<netinet/in.h>
+	<netinet/tcp.h>
+	<netdb.h>
+	<errno.h>
+	<sys/epoll.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<unistd.h>
+	<fcntl.h>
+	<thread>
+	<cstdio>
+	<cstring>
+
