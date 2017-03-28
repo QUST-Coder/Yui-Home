@@ -1,9 +1,12 @@
 # depslib dependency file v1.0
-1490627364 source:d:\codeblocks_codes\yuihome\main.cpp
-	"gsock.h"
+1490663487 source:d:\codeblocks_codes\yuihome\main.cpp
+	"Connection.h"
 	<iostream>
 	<string>
 	<algorithm>
+	<vector>
+	<thread>
+	<mutex>
 
 1490627651 d:\codeblocks_codes\yuihome\gsock.h
 	<winsock2.h>
@@ -18,9 +21,17 @@
 	<unistd.h>
 	<fcntl.h>
 
-1490627654 source:d:\codeblocks_codes\yuihome\gsock.cpp
+1490662908 source:d:\codeblocks_codes\yuihome\gsock.cpp
 	"gsock.h"
 	<cstdio>
 	<cstring>
 	<exception>
+
+1490664527 d:\codeblocks_codes\yuihome\connection.h
+	"gsock.h"
+	<string>
+	<memory>
+
+1490664487 source:d:\codeblocks_codes\yuihome\connection.cpp
+	"Connection.h"
 
