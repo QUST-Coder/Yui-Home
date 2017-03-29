@@ -14,7 +14,19 @@ public:
     int recv(int& val);
     int send(const void* ptr,int len);
     int recv(void* ptr,int len);
+
+    bool ready();
 private:
     std::shared_ptr<sock> sp;
 };
 
+class ServerListener
+{
+public:
+    ServerListener();
+    ServerListener(int Port,int ListenQueueLength);
+    bool ready();
+private:
+    std::shared_ptr<serversock> sp;
+    int _status;
+};

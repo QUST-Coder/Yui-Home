@@ -86,3 +86,39 @@ int Connection::recv(void* ptr,int len)
     }
     return recved;
 }
+
+bool Connection::ready()
+{
+    return sp.get()!=nullptr;
+}
+
+
+
+ServerListener::ServerListener()
+{
+    _status=-1;
+}
+
+ServerListener::ServerListener(int Port,int ListenQueueLength)
+{
+    _status=-1;
+    serversock* ss=new serversock;
+    if(ss==nullptr) return;
+    shared_ptr<serversock> tmp;
+    tmp.reset(ss);
+
+    _status=0;
+    int ret=ss->bind(Port);
+    if(ret<0) return;
+    _status=1;
+    ret=ss->listen(ListenQueueLength);
+    if(ret<0) return;
+    _status=2;
+
+    sp=tmp;
+}
+
+bool ServerListener::ready()
+{
+    return (sp.get()!=nullptr)&&(_status==2);
+}
