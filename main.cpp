@@ -1,4 +1,5 @@
 #include "Connection.h"
+#include "Log.h"
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -7,31 +8,7 @@
 #include <mutex>
 using namespace std;
 
-#define JUDGE_PORT 60001
-
-
-bool TryConnectVec(Connection Conn,vector<string> vec)
-{
-    for(auto& str:vec)
-    {
-        cout<<"About to connect to "<<str<<endl;
-        Connection c;
-        if(c.connect(str,JUDGE_PORT)==0)
-        {
-            cout<<"Successfully connected to "<<str<<endl;
-            Conn=c;
-            return true;
-        }
-    }
-    return false;
-}
-
-vector<string> GetDefaultServerList()
-{
-    vector<string> vec;
-    vec.push_back("127.0.0.1");
-    return vec;
-}
+#define JUDGE_SERVER_PORT 60001
 
 void ShowWelcomeMessage()
 {
@@ -45,14 +22,17 @@ void ShowWelcomeMessage()
 
 int main()
 {
+    if(!log_init()) return -1;
+    log("Log System Started Successfully.");
+
     ShowWelcomeMessage();
-    vector<string> vec=GetDefaultServerList();
-    Connection conn;
-    if(!TryConnectVec(conn,vec))
+
+    log("Starting Server Socket...");
+    ServerListener nsl(JUDGE_SERVER_PORT,100);
+    if(!nsl.ready())
     {
-        cout<<"Failed to connect to any server."<<endl;
-        cout<<"Abort."<<endl;
-        return 0;
+        log("Failed to start ServerSocket.");
     }
+
     return 0;
 }

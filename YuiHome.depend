@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1490663487 source:d:\codeblocks_codes\yuihome\main.cpp
+1490750947 source:d:\codeblocks_codes\yuihome\main.cpp
 	"Connection.h"
+	"Log.h"
 	<iostream>
 	<string>
 	<algorithm>
@@ -27,11 +28,18 @@
 	<cstring>
 	<exception>
 
-1490664527 d:\codeblocks_codes\yuihome\connection.h
+1490751044 d:\codeblocks_codes\yuihome\connection.h
 	"gsock.h"
 	<string>
 	<memory>
 
-1490664487 source:d:\codeblocks_codes\yuihome\connection.cpp
+1490665244 source:d:\codeblocks_codes\yuihome\connection.cpp
 	"Connection.h"
+
+1490751078 source:d:\codeblocks_codes\yuihome\log.cpp
+	"Log.h"
+	<cstdio>
+	<cstdarg>
+
+1490750657 d:\codeblocks_codes\yuihome\log.h
 
