@@ -55,6 +55,11 @@ int Connection::recv(int& val)
     return ret;
 }
 
+int Connection::relaxsend(const void* ptr,int len)
+{
+    return sp.get()->send((const char*)ptr,len);
+}
+
 int Connection::send(const void* ptr,int len)
 {
     if(sp.get()==nullptr) return -2;
@@ -63,12 +68,17 @@ int Connection::send(const void* ptr,int len)
     int ret;
     while(sent<total)
     {
-        ret=sp.get()->send((const char*)ptr+sent,total-sent);
+        ret=relaxsend((const char*)ptr+sent,total-sent);
         /// FIXME: How to return both sent bytes and error code?
         if(ret<=0) return ret;
         else sent+=ret;
     }
     return sent;
+}
+
+int Connection::relaxrecv(void* ptr,int len)
+{
+    return sp.get()->recv((char*)ptr,len);
 }
 
 int Connection::recv(void* ptr,int len)
@@ -79,7 +89,7 @@ int Connection::recv(void* ptr,int len)
     int ret;
     while(recved<total)
     {
-        ret=sp.get()->recv((char*)ptr+recved,total-recved);
+        ret=relaxrecv((char*)ptr+recved,total-recved);
         /// FIXME: How to return both sent bytes and error code?
         if(ret<=0) return ret;
         else recved+=ret;
@@ -121,4 +131,12 @@ ServerListener::ServerListener(int Port,int ListenQueueLength)
 bool ServerListener::ready()
 {
     return (sp.get()!=nullptr)&&(_status==2);
+}
+
+Connection ServerListener::accept()
+{
+    sock* s=new sock(sp.get()->accept());
+    Connection c;
+    c.sp.reset(s);
+    return c;
 }

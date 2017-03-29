@@ -15,8 +15,12 @@ public:
     int send(const void* ptr,int len);
     int recv(void* ptr,int len);
 
+    int relaxsend(const void* ptr,int len);
+    int relaxrecv(void* ptr,int len);
+
     bool ready();
 private:
+    friend class ServerListener;
     std::shared_ptr<sock> sp;
 };
 
@@ -26,6 +30,7 @@ public:
     ServerListener();
     ServerListener(int Port,int ListenQueueLength);
     bool ready();
+    Connection accept();
 private:
     std::shared_ptr<serversock> sp;
     int _status;
