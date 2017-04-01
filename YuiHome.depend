@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1490750947 source:d:\codeblocks_codes\yuihome\main.cpp
+1491010089 source:d:\codeblocks_codes\yuihome\main.cpp
 	"Connection.h"
 	"Log.h"
 	<iostream>
 	<string>
 	<algorithm>
 	<vector>
-	<thread>
 	<mutex>
+	<future>
 
-1490627651 d:\codeblocks_codes\yuihome\gsock.h
+1490755278 d:\codeblocks_codes\yuihome\gsock.h
 	<winsock2.h>
 	<arpa/inet.h>
 	<netinet/in.h>
@@ -22,24 +22,28 @@
 	<unistd.h>
 	<fcntl.h>
 
-1490662908 source:d:\codeblocks_codes\yuihome\gsock.cpp
+1490755278 source:d:\codeblocks_codes\yuihome\gsock.cpp
 	"gsock.h"
 	<cstdio>
 	<cstring>
 	<exception>
 
-1490751044 d:\codeblocks_codes\yuihome\connection.h
+1491006425 d:\codeblocks_codes\yuihome\connection.h
+	"config.h"
 	"gsock.h"
 	<string>
 	<memory>
 
-1490665244 source:d:\codeblocks_codes\yuihome\connection.cpp
+1490755278 source:d:\codeblocks_codes\yuihome\connection.cpp
 	"Connection.h"
 
-1490751078 source:d:\codeblocks_codes\yuihome\log.cpp
+1490755278 source:d:\codeblocks_codes\yuihome\log.cpp
 	"Log.h"
 	<cstdio>
 	<cstdarg>
 
-1490750657 d:\codeblocks_codes\yuihome\log.h
+1491006352 d:\codeblocks_codes\yuihome\log.h
+	"config.h"
+
+1491006399 d:\codeblocks_codes\yuihome\config.h
 

@@ -34,6 +34,9 @@
 		</Compiler>
 		<Unit filename="Connection.cpp" />
 		<Unit filename="Connection.h" />
+		<Unit filename="Log.cpp" />
+		<Unit filename="Log.h" />
+		<Unit filename="config.h" />
 		<Unit filename="gsock.cpp" />
 		<Unit filename="gsock.h" />
 		<Unit filename="main.cpp" />
