@@ -1,4 +1,5 @@
 #pragma once
+#include "config.h"
 #include "gsock.h"
 #include <string>
 #include <memory>
